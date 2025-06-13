@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useEffect, useState } from "react"
@@ -24,11 +23,19 @@ export default function HeroSection() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
+  // Determine image based on temperature
+  const getWeatherImage = (temp: number) => {
+    if (temp <= 10) return "/cap&bell.png" // Cold: Snowy/mountain image
+    if (temp <= 20) return "/20.jpg" // Cool: Cloudy/hills image
+    if (temp <= 30) return "/warm-weather.png" // Warm: Sunny/beach image
+    return "/hot-weather.png" // Hot: Desert/sun image
+  }
+
   useEffect(() => {
     const fetchWeather = async () => {
       const randomCity = cities[Math.floor(Math.random() * cities.length)]
-      const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY // Use environment variable
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${randomCity},IN&units=metric&appid=${apiKey}`
+      const apiKey = "144cfb56ad924de9d9f8787cf197408f"
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(randomCity)},IN&units=metric&appid=${apiKey}`
 
       try {
         const res = await axios.get(url)
@@ -51,36 +58,47 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="w-full h-screen pt-20 flex items-center bg-white">
-      <div className="container mx-auto px-4">
+    <section className="w-full min-h-screen pt-16 flex items-center bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {loading ? (
-            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid mb-8" />
+            <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-t-4 border-blue-500 border-solid mb-6 sm:mb-8" />
           ) : error ? (
-            <p className="text-red-500 mb-8">{error}</p>
+            <p className="text-red-500 text-base sm:text-lg mb-6 sm:mb-8">{error}</p>
           ) : weather && (
             <>
-              <div className="flex items-center justify-center mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8 gap-4 sm:gap-6">
                 <Image
-                  src="/cap&bell.png" // Fixed placeholder image
+                  src={getWeatherImage(weather.temp)}
                   alt="Weather Icon"
-                  width={180}
-                  height={180}
-                  className="mr-2"
+                  width={120}
+                  height={120}
+                  className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 object-contain"
                 />
                 <div className="flex items-baseline">
-                  <span className="text-8xl font-bold">{weather.temp}</span>
-                  <span className="text-2xl align-top">°</span>
-                  <span className="text-3xl ml-2">in {weather.city}</span>
+                  <span className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-none">
+                    {weather.temp}
+                  </span>
+                  <span className="text-lg sm:text-xl lg:text-2xl align-top">°</span>
+                  <span className="text-lg sm:text-xl lg:text-3xl ml-2 sm:ml-3">
+                    in {weather.city}
+                  </span>
                 </div>
               </div>
-              <p className="text-xl mb-2 capitalize">{weather.description}</p>
+              <p className="text-base sm:text-lg lg:text-xl mb-4 sm:mb-6 capitalize">
+                {weather.description}
+              </p>
             </>
           )}
 
-          <p className="text-xl mb-8 max-w-md">Explore your favorite destination with us</p>
+          <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-xs sm:max-w-md lg:max-w-lg">
+            Explore your favorite destination with us
+          </p>
 
-          <Link href="/NewPage" className="px-8 py-3 rounded-md hover:bg-gray-50 transition-colors">
+          <Link
+            href="/NewPage"
+            className="px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base font-medium rounded-md border border-gray-200 hover:bg-gray-50 transition-colors"
+          >
             Download Now
           </Link>
         </div>
