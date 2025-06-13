@@ -6,25 +6,25 @@ export default function AffordableTrips() {
     {
       id: 1,
       name: "Manali",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/mananli.jpeg?height=200&width=200",
       price: "Starting from INR - 5999",
     },
     {
       id: 2,
       name: "Goa",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/Goa.jpeg?height=200&width=200",
       price: "Starting from INR - 5999",
     },
     {
       id: 3,
       name: "Kashmir",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/kashmir.jpeg?height=200&width=200",
       price: "Starting from INR - 10,000",
     },
     {
       id: 4,
       name: "Jungle Safari",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/jungle.jpeg?height=200&width=200",
       price: "Starting from INR - 10,000",
     },
   ]

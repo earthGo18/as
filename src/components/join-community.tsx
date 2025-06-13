@@ -1,60 +1,58 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
 export default function JoinCommunity() {
   return (
-    <div id = "community" className="w-full h-full flex items-center bg-white">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <div className="flex items-center mb-4">
-              <div className="relative h-10 w-32 mb-4">
-                <div className="font-bold text-2xl">
-                  Earth<span className="font-normal">Go</span> 🌎
-                </div>
-                <div className="text-xs text-gray-500">Explore. Connect. Experience.</div>
-              </div>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold mb-2">
+    <div id="community" className="w-full min-h-screen flex items-center bg-white">
+      <div className="container mx-auto px-4 py-16">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="md:w-1/2 mb-12 md:mb-0">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
               Join the
-              <span className="bg-green-400 text-white px-2 py-1 ml-2">EarthGo</span> Community!
+              <span className="bg-blue-600 text-white px-3 py-1 ml-2 rounded-md shadow-md">EarthGo</span> Community!
             </h2>
-
-            <p className="text-gray-600 mb-8 max-w-md">
-              Join a vibrant community of travelers connect, share, and explore the world together!
+            <p className="text-lg text-gray-500 mb-8 max-w-md">
+              Connect with a vibrant community of travelers, share adventures, and explore the world together!
             </p>
-
-            <Link href="#" className="px-8 py-3 rounded-md hover:bg-gray-50 transition-colors">
+            <Link
+              href="#"
+              className="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
+            >
               Download Now
             </Link>
           </div>
 
-          <div className="md:w-1/2 grid grid-cols-2 gap-4 relative">
-            <Image
-              src="/placeholder.svg?height=200&width=200"
-              alt="Hiking adventure"
-              width={200}
-              height={200}
-              className="rounded-lg"
-            />
-            <Image
-              src="/placeholder.svg?height=200&width=200"
-              alt="Skydiving adventure"
-              width={200}
-              height={200}
-              className="rounded-lg"
-            />
-            <Image
-              src="/placeholder.svg?height=200&width=200"
-              alt="Diving adventure"
-              width={200}
-              height={200}
-              className="rounded-lg col-span-2 mt-4 mx-auto"
-            />
+          <div className="md:w-1/2 grid grid-cols-2 gap-6 relative">
+            <div className="group">
+              <Image
+                src="/1.jpeg?height=200&width=200"
+                alt="Hiking adventure"
+                width={200}
+                height={200}
+                className="rounded-2xl object-cover shadow-lg transform group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 border border-blue-100"
+              />
+            </div>
+            <div className="group mt-10">
+              <Image
+                src="/2.jpeg?height=200&width=200"
+                alt="Skydiving adventure"
+                width={200}
+                height={200}
+                className="rounded-2xl object-cover shadow-lg transform group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 border border-blue-100"
+              />
+            </div>
+            <div className="group col-span-2 mt-6 mx-auto">
+              <Image
+                src="/jungle.jpeg?height=200&width=200"
+                alt="Diving adventure"
+                width={320}
+                height={200}
+                className="rounded-2xl object-cover shadow-lg transform group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 border border-blue-100"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
