@@ -28,8 +28,8 @@ export default function HeroSection() {
   const getWeatherImage = (temp: number) => {
     if (temp <= 10) return '/cap&bell.png'
     if (temp <= 20) return '/20.jpg'
-    if (temp <= 30) return '/warm-weather.png'
-    return '/hot-weather.png'
+    if (temp <= 30) return '/11.png'
+    return '/sun.png'
   }
 
   useEffect(() => {
