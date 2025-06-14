@@ -7,6 +7,7 @@ import JoinCommunity from "@/components/join-community"
 import AiPlanner from "@/components/ai-planner"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
+import Join from "@/components/join"
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -28,6 +29,10 @@ export default function Home() {
         <section className="w-full h-screen">
           <JoinCommunity />
         </section>
+      <section className="w-full h-screen">
+          <Join />
+        </section>
+
         <section className="w-full h-screen">
           <AiPlanner />
         </section>
