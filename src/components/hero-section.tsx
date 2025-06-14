@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import axios from "axios"
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import axios from 'axios'
 
 const cities = [
   "Manali", "Shimla", "Ooty", "Coorg", "Munnar", "Pahalgam", "Gulmarg", "Srinagar", "Shillong",
@@ -14,41 +14,43 @@ const cities = [
   "Ranchi", "Raipur", "Bhubaneswar", "Guwahati", "Imphal", "Itanagar", "Dispur", "Panaji",
 ]
 
-export default function HeroSection() {
-  const [weather, setWeather] = useState({
-    city: "Sample City",
-    temp: 0,
-    description: "clear sky",
-  })
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+type Weather = {
+  city: string
+  temp: number
+  description: string
+}
 
-  // Determine image based on temperature
+export default function HeroSection() {
+  const [weather, setWeather] = useState<Weather | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
   const getWeatherImage = (temp: number) => {
-    if (temp <= 10) return "/cap&bell.png" // Cold: Snowy/mountain image
-    if (temp <= 20) return "/20.jpg" // Cool: Cloudy/hills image
-    if (temp <= 30) return "/warm-weather.png" // Warm: Sunny/beach image
-    return "/hot-weather.png" // Hot: Desert/sun image
+    if (temp <= 10) return '/cap&bell.png'
+    if (temp <= 20) return '/20.jpg'
+    if (temp <= 30) return '/warm-weather.png'
+    return '/hot-weather.png'
   }
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const randomCity = cities[Math.floor(Math.random() * cities.length)]
-      const apiKey = "144cfb56ad924de9d9f8787cf197408f"
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(randomCity)},IN&units=metric&appid=${apiKey}`
+      const city = cities[Math.floor(Math.random() * cities.length)]
+      const apiKey = '144cfb56ad924de9d9f8787cf197408f'
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+        city
+      )},IN&units=metric&appid=${apiKey}`
 
       try {
         const res = await axios.get(url)
         const data = res.data
-
         setWeather({
           city: data.name,
           temp: Math.round(data.main.temp),
           description: data.weather[0].description,
         })
         setError(null)
-      } catch (err) {
-        setError("Failed to fetch weather. Please try again.")
+      } catch {
+        setError('Failed to fetch weather. Please try again.')
       } finally {
         setLoading(false)
       }
@@ -62,7 +64,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {loading ? (
-            <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-t-4 border-blue-500 border-solid mb-6 sm:mb-8" />
+            <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-blue-500 border-solid mb-6 sm:mb-8" />
           ) : error ? (
             <p className="text-red-500 text-base sm:text-lg mb-6 sm:mb-8">{error}</p>
           ) : weather && (
@@ -76,7 +78,7 @@ export default function HeroSection() {
                   className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 object-contain"
                 />
                 <div className="flex items-baseline">
-                  <span className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-none">
+                  <span className="text-5xl sm:text-6xl lg:text-8xl font-bold">
                     {weather.temp}
                   </span>
                   <span className="text-lg sm:text-xl lg:text-2xl align-top">°</span>
