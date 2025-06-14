@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function ConnectingTravelers() {
   return (
-    <div id="about" className="relative min-h-screen w-full overflow-hidden">
+    <div id="about" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
       <Image
-        src="/traveller.png" // use / if the image is in the public folder
+        src="/traveller.png"
         alt="Background image"
-        layout="fill" // makes the image cover the parent div
-        objectFit="cover" // behaves like `object-cover` in Tailwind
-        priority // optional: preload the image for faster load
+        width={1200} // adjust the size as you want
+        height={1000}
+        priority
       />
     </div>
   );
