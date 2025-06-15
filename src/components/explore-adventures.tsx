@@ -9,7 +9,7 @@ export default function ExploreAdventures() {
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
             <div className="space-y-4">
               <span className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                <span className="bg-blue-500 text-white px-2 py-1 rounded">Explore</span> and
+                <span  style={{ backgroundColor: "#538ab4" }} className=" text-white px-2 py-1 rounded">Explore</span> and
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">Find Adventure Trips</h2>
             </div>

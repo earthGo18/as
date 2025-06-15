@@ -16,13 +16,11 @@ export default function EarthGoPartnerPage() {
       <div className="max-w-5xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-14">
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 mb-4">Partner with</h1>
-          <div className="inline-block bg-blue-600 text-white px-8 py-3 text-2xl md:text-3xl font-bold rounded-md shadow-md">
-            EarthGo
+          <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 mb-4">Join</h1>
+          <div style={{ backgroundColor: "#538ab4" }} className="inline-block text-white px-8 py-3 text-2xl md:text-3xl font-bold rounded-md shadow-md">
+            EarthGo as a Partner
           </div>
-          <p className="mt-4 text-gray-500 text-lg max-w-xl mx-auto">
-            Join us to offer unique travel experiences or stays across India.
-          </p>
+
         </div>
 
         {/* Partner Options */}
@@ -43,9 +41,8 @@ export default function EarthGoPartnerPage() {
                 />
               </div>
               <h2 className="text-xl font-semibold text-gray-800 mb-2">Travel Partner</h2>
-              <p className="text-sm text-gray-500">
-                Are you a tour operator or local trip planner? Join EarthGo to reach travelers and grow your bookings.
-              </p>
+          
+             
             </div>
           </div>
 
@@ -66,7 +63,7 @@ export default function EarthGoPartnerPage() {
               </div>
               <h2 className="text-xl font-semibold text-gray-800 mb-2">Stay Partner</h2>
               <p className="text-sm text-gray-500">
-                Hotels, homestays, or resorts – list with us to start receiving curated travel bookings.
+                Hotels, homestays, or resorts
               </p>
             </div>
           </div>

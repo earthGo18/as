@@ -73,9 +73,13 @@ export default function HeroSection() {
                 <Image
                   src={getWeatherImage(weather.temp)}
                   alt="Weather Icon"
-                  width={120}
-                  height={120}
-                  className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 object-contain"
+                  width={weather.temp > 30 ? 600 : 120}
+                  height={weather.temp > 30 ? 400 : 120}
+                  className={`object-contain ${
+                    weather.temp > 30
+                      ? 'w-40 h-40 sm:w-48 sm:h-48 lg:w-60 lg:h-60'
+                      : 'w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40'
+                  }`}
                 />
                 <div className="flex items-baseline">
                   <span className="text-5xl sm:text-6xl lg:text-8xl font-bold">
@@ -93,9 +97,9 @@ export default function HeroSection() {
             </>
           )}
 
-          <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-xs sm:max-w-md lg:max-w-lg">
-            Explore your favorite destination with us
-          </p>
+<p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-xs sm:max-w-md lg:max-w-lg text-center">
+ <span style={{ backgroundColor: "#67c558" }} className=" text-white px-2 py-1 rounded">  Explore your favorite destination with us </span> 
+</p>
 
           <Link
             href="/NewPage"

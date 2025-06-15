@@ -9,14 +9,14 @@ export default function JoinCommunity() {
           <div className="md:w-1/2 mb-12 md:mb-0">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
               Join the
-              <span className="bg-blue-600 text-white px-3 py-1 ml-2 rounded-md shadow-md">EarthGo</span> Community!
+              <span style={{ backgroundColor: "#538ab4" }} className=" text-white px-3 py-1 ml-2 rounded-md shadow-md">EarthGo</span> Community!
             </h2>
             <p className="text-lg text-gray-500 mb-8 max-w-md">
               Connect with a vibrant community of travelers, share adventures, and explore the world together!
             </p>
-            <Link
+            <Link style={{ backgroundColor: "#538ab4" }}
               href="#"
-              className="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
+              className="px-8 py-4  text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
             >
               Download Now
             </Link>
@@ -43,9 +43,9 @@ export default function JoinCommunity() {
             </div>
             <div className="group col-span-2 mt-6 mx-auto">
               <Image
-                src="/jungle.jpeg?height=200&width=200"
+                src="/divining.jpeg?height=200&width=200"
                 alt="Diving adventure"
-                width={320}
+                width={200}
                 height={200}
                 className="rounded-2xl object-cover shadow-lg transform group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 border border-blue-100"
               />
